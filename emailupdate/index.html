@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Email</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        .register .nav-tabs .nav-link:hover {
+            border: none;
+        }
+        
+        .text-align {
+            margin-top: -15%;
+            margin-bottom: -9%;
+            padding: 5%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-new {
+            margin-right: 22%;
+            margin-left: 20%;
+        }
+        
+        .register-heading {
+            margin-left: 21%;
+            margin-bottom: 10%;
+            margin-top: 10px;
+            color: black;
+        }
+        
+        .register-heading h3 {
+            margin-left: 21%;
+            margin-top: 10px;
+            margin-bottom: 10%;
+            color: black;
+        }
+        
+        .register {
+            background: -webkit-linear-gradient(left, #f6a420, #666666);
+            padding: 6%;
+        }
+        
+        .btnSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: white;
+            background-color: #ed4f1c;
+            border: none;
+            cursor: pointer;
+            margin-right: 6%;
+            margin-top: 4%;
+            transition: ease 0.3s;
+        }
+        
+        .btnSubmit:hover {
+            background-color: white;
+            color: #ed4f1c;
+            border: #ed4f1c solid;
+            border-width: 2px;
+            font-weight: bold;
+        }
+        
+        .btnSubmit:active {
+            color: green;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        
+        .input-lable {
+            margin-bottom: 3px;
+        }
+        
+        body {
+            background-color: lightgray;
+        }
+        
+        element.style {
+            padding-top: 12px;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .text-align {
+                margin-top: -20%;
+                margin-bottom: -9%;
+                padding: 5%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div>
+                        <img src="cpimg.png" alt="Girl in a jacket" width="100%" height="100Px">
+                        <!--<h3 class="register-heading">Update Email</h3>-->
+                    </div>
+                    <div class="row register-form">
+                        <div class="col-md-12">
+                            <form method="post" autocomplete="off" name="EmailUpdate">
+                                <div class="form-group">
+                                    <p class="input-lable">Full Name:</p>
+                                    <input type="text" name="fullname" class="form-control" placeholder="Your Name *" value="" required="" />
+                                </div>
+                                <div class="form-group">
+                                    <p class="input-lable">Employee Code:</p>
+                                    <input type="text" name="empcode" class="form-control" placeholder="Employee Code " value="" />
+                                </div>
+                                <div class="form-group">
+                                    <p class="input-lable">User Name:</p>
+                                    <input type="text" name="username" class="form-control" placeholder="User Id" value="" required="" />
+                                </div>
+                                <div class="form-group">
+                                    <p class="input-lable">Registered Mobile No:</p>
+                                    <input type="number" name="registeredmobileno" class="form-control" placeholder="Your Mobile Number *" value="" required="" />
+                                </div>
+                                <div class="form-group">
+                                    <p class="input-lable">Email:</p>
+                                    <input type="text" name="email" class="form-control" placeholder="Your Email *" value="" required="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="submit" class="btnSubmit btn-block" value="Update" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyrXW7FyQph1EO_JyB30-Y3phKI0I06n0F5Bmhz9OSyRUvRVlbPObGMy2u4yzzrbc3K8w/exec'
+        const form = document.forms['EmailUpdate']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks for Updating ChannelPaisa..!"))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+</html>
